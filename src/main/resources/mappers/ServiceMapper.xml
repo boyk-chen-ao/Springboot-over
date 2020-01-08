@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.code.demo.mapper.ServiceMapper">
+
+    <!-- 添加部分 -->
+    <select id="findByCase" resultType="map">
+        SELECT
+        s.service_id as serviceId,
+        s.service_name as serviceName,
+        s.service_firstcategory_id as serviceFirstcategoryId,
+        s.service_secondcategory_id as serviceSecondcategoryId,
+        s.service_cover as serviceCover,
+        s.service_content as serviceContent,
+        s.service_is_recommend as serviceIsRecommend,
+        s.service_state as serviceState,
+        s.service_no as serviceNo,
+        s.service_show_price as serviceShowPrice,
+        s.service_first_sort as serviceFirstSort,
+        se.seller_name as sellerName
+        FROM
+        service s
+        LEFT JOIN seller se ON s.service_seller_id=se.seller_id
+--         LEFT JOIN category c On s.service_firstcategory_id = c.
+        <where>
+            <if test="categoryId!=null">
+                and s.service_firstcategory_id=#{categoryId}
+            </if>
+            <if test="sellerId!=null">
+                and s.service_seller_id=#{sellerId}
+            </if>
+            <if test="serviceName!=null and serviceName!=''">
+                and s.service_name like CONCAT('%',#{serviceName},'%')
+            </if>
+            <if test="state!=null">
+                and s.service_state=#{state}
+            </if>
+            and s.service_state=1
+            and s.service_is_del=0
+            and s.service_channel_id=#{channelId}
+        </where>
+        order by s.service_is_recommend desc,s.service_first_sort desc, s.service_create_time desc    </select>
+
+
+</mapper>

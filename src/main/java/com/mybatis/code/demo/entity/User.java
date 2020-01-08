@@ -1,6 +1,8 @@
 package com.mybatis.code.demo.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Long id;
     private String name;
     private Integer age;

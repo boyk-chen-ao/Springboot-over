@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,6 +27,8 @@ public class FileController {
     @Value("${uploadPath}")
     private String uploadPath;
 
+    private String uploadPathTest = "C:/Users/Administrator/AppData/Local/Temp/tomcat-docbase.4264994143425730854.8083/";
+
     /**
      * 根据类型不同上传到不同的文件夹下
      * SpringMVC 用的是 的MultipartFile来进行文件上传
@@ -39,7 +42,10 @@ public class FileController {
     @ResponseBody // 这里upfile是config.json中图片提交的表单名称
     public Map<String, Object> uploadFile(
             @RequestParam("file") MultipartFile file,
-            @RequestParam(value = "dirName",required = false) String dirName) throws Exception {
+            @RequestParam(value = "dirName",required = false) String dirName,
+           HttpServletRequest request) throws Exception {
+//        // 将图片放到tomcat中
+//        System.out.println(request.getServletContext().getRealPath("/"));
         Map<String, String> map = new HashMap<String, String>();
         // 获取不同的渠道路径
         if (file == null || file.isEmpty()) {
