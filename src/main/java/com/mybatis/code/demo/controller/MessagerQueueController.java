@@ -1,6 +1,6 @@
 package com.mybatis.code.demo.controller;
 
-import com.mybatis.code.demo.queue.HelloSender;
+import com.mybatis.code.demo.messagecenter.queue.HelloSender;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

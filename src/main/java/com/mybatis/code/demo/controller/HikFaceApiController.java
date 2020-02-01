@@ -1,12 +1,9 @@
 package com.mybatis.code.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mybatis.code.demo.haikang.GetHikFaceApi;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class HikFaceApiController {
@@ -26,10 +23,11 @@ public class HikFaceApiController {
         String pathEnd = "/api/frs/v1/resource/recognition";
 
         // 调用接口，放回结果，转为json格式
-        String result = GetHikFaceApi.GetHikFaceApi(jsonBody,pathEnd);
-        JSONObject jsonResult = JSONObject.parseObject(result);
+//        String result = GetHikFaceApi.GetHikFaceApi(jsonBody,pathEnd);
+//        JSONObject jsonResult = JSONObject.parseObject(result);
 
-        return jsonResult;
+//        return jsonResult;
+        return "";
     }
 
     // 人脸管理---------------------------------------------------------------------------------------------------------
@@ -47,10 +45,11 @@ public class HikFaceApiController {
         String pathEnd = "/api/frs/v1/face/group";
 
         // 调用接口，放回结果，转为json格式
-        String result = GetHikFaceApi.GetHikFaceApi(jsonBody,pathEnd);
-        JSONObject jsonResult = JSONObject.parseObject(result);
-
-        return jsonResult;
+//        String result = GetHikFaceApi.GetHikFaceApi(jsonBody,pathEnd);
+//        JSONObject jsonResult = JSONObject.parseObject(result);
+//
+//        return jsonResult;
+        return "";
     }
 
 //    /**

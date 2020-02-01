@@ -12,7 +12,7 @@ import java.io.*;
  */
 public class Base64ImageUtil {
     public static void main(String[] args) throws Exception {
-        String strImg = GetImageStr("C:\\Users\\Administrator\\Desktop\\timg.jpg");
+        String strImg = GetImageStr("C:\\Users\\Administrator\\Desktop\\微信图片dwon.jpg");
         System.out.println("==============strImg===============");
         System.out.println(strImg);
         System.out.println("================end================");
